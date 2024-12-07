@@ -1,0 +1,3 @@
+[submodule "git-localconfig-repo"]
+	path = git-localconfig-repo
+	url = https://github.com/virat0311/git-localconfig-repo.git
