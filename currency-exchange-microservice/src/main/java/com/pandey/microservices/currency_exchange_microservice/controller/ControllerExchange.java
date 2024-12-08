@@ -17,7 +17,7 @@ public class ControllerExchange {
     Environment env;
     @Autowired
     CurrencyExchangeRepository repository;
-    int a=0;
+    //int a=0;
 
 
     @GetMapping("/currency-exchange/from/{from}/to/{to}")
@@ -32,7 +32,7 @@ public class ControllerExchange {
         }
         String port= env.getProperty("local.server.port");
         currencyExchange.setEnvironment(port);
-        System.out.println("this is the currenct numb: "+a++);
+        //System.out.println("this is the currenct numb: "+a++);
 
        return repository.findByFromAndTo(from,to);
     }

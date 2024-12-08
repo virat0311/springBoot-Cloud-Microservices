@@ -6,6 +6,16 @@ http://localhost:8000/currency-exchange/from/{usd}/to/{inr}
 currency converison port:8100
 http://localhost:8100/currency-conversion/from/USD/to/INR/quantity/10
 
+****
+In this  we have defined circuit breaker to do retry if 1 service fails, max attempts, exponential backoff, if still
+it will change in state from close->open->halfope->closeor open again
+@Retry()
+@CircuitBreaker()
+@RateLimiter()
+@BulkHead()   //how many concurrent req/calls allowed for each api
+***
+
+
 
 1. Limits Microservice
 Ports: 8080, 8081, etc.

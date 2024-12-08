@@ -6,10 +6,14 @@ http://localhost:8000/currency-exchange/from/{usd}/to/{inr}
 currency converison port:8100
 http://localhost:8100/currency-conversion/from/USD/to/INR/quantity/10
 
-API Gateway:
-
+After API Gateway:
 http://localhost:8765/currency-exchange/currency-exchange/from/AUD/to/INR
 http://localhost:8765/currency-conversion/currency-conversion/from/USD/to/INR/quantity/10
+
+But after setting the route from api gateway, apis becomes:
+http://localhost:8765/currency-exchange/from/AUD/to/INR
+http://localhost:8765/currency-conversion/from/USD/to/INR/quantity/10
+
 
 
 
