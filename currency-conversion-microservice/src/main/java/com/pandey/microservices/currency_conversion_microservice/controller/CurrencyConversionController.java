@@ -2,6 +2,8 @@ package com.pandey.microservices.currency_conversion_microservice.controller;
 
 import com.pandey.microservices.currency_conversion_microservice.currencyconversionservice.CurrencyConversion;
 import com.pandey.microservices.currency_conversion_microservice.currencyconversionservice.CurrencyExchangeProxy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,8 @@ public class CurrencyConversionController {
     @Autowired
     CurrencyExchangeProxy proxy;
 
+    private Logger logger= LoggerFactory.getLogger(CurrencyConversionController.class);
+
 //    @GetMapping("/currency-conversion/from/{from}/to/{to}/quantity/{num}")
 //    public CurrencyConversion calculateCurrencyConversion(@PathVariable String from,
 //                                                          @PathVariable String to,
@@ -39,6 +43,7 @@ public class CurrencyConversionController {
     public CurrencyConversion calculateCurrencyConversionFeign(@PathVariable String from,
                                                           @PathVariable String to,
                                                           @PathVariable BigDecimal num) {
+        logger.info("logger of currency-conversion from->{},to->{}, quan->{} ",from,to,num);
 
         CurrencyConversion currencyConversion=proxy.retrieveExchange(from,to);
         return new CurrencyConversion(currencyConversion.getId(),from,to, currencyConversion.getConversionMultiple(),num,num.multiply(currencyConversion.getConversionMultiple()),currencyConversion.getEnvironment());
